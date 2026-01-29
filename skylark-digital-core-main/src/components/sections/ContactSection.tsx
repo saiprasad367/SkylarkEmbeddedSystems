@@ -47,7 +47,7 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact/send', {
+      const response = await fetch('https://skylarkembeddedsystems.onrender.com/api/contact/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
