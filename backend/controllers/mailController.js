@@ -1,18 +1,22 @@
 const nodemailer = require("nodemailer");
 
-// Configure Nodemailer Transporter
+// Configure Nodemailer Transporter (SMTP MODE — WORKS ON RENDER)
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // TLS
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
+  },
+  tls: {
+    rejectUnauthorized: false
   }
 });
 
 exports.sendContactEmail = async (req, res) => {
   const { name, email, phone, message } = req.body;
 
-  // Validation
   if (!name || !email || !phone || !message) {
     return res.status(400).json({
       success: false,
@@ -63,7 +67,7 @@ Skylark Embedded Systems Team
       message: "Message sent successfully!"
     });
   } catch (error) {
-    console.error("Email Error:", error.message);
+    console.error("Email Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to send email. Please try again later."
