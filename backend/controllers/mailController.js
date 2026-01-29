@@ -58,7 +58,7 @@ const buildUserEmailTemplate = (name) => {
 
               <!-- CTA BUTTON -->
               <div style="text-align:center;margin:36px 0;">
-                <a href="https://skylarkembeddedsystems.com"
+                <a href="https://skylark-embedded-systems.vercel.app"
                   style="
                     background:linear-gradient(135deg,#0ea5e9,#22d3ee);
                     color:#020617;
